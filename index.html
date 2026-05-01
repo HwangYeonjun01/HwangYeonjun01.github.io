@@ -96,6 +96,21 @@
   }
   nav a:hover::after { width: 100%; }
 
+  .news-content a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent);
+    transition: color 0.2s, border-bottom-style 0.2s;
+  }
+  .news-content a:hover {
+    color: var(--accent);
+    border-bottom-style: solid;
+  }
+  
+  .pub {
+    scroll-margin-top: 90px;
+  }
+
   /* ===== HERO ===== */
   .hero {
     padding: 100px 0 80px;
@@ -243,6 +258,43 @@
     color: var(--ink);
     font-weight: 500;
   }
+
+  /* ===== NEWS ===== */
+.news-list {
+  border-top: 1px solid var(--line);
+}
+.news-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 28px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.news-date {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+  letter-spacing: 0.05em;
+  padding-top: 2px;
+}
+.news-content {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  font-weight: 300;
+}
+.news-content .emoji { margin-right: 8px; }
+.news-content strong {
+  color: var(--ink);
+  font-weight: 500;
+  font-style: italic;
+}
+.news-content .venue {
+  color: var(--accent);
+  font-weight: 500;
+}
 
   /* ===== EDUCATION ===== */
   .edu-item {
@@ -430,6 +482,7 @@
     }
     nav ul { gap: 18px; }
     nav a { font-size: 12px; }
+    .news-item { grid-template-columns: 1fr; gap: 6px; }
     .edu-item { grid-template-columns: 1fr; gap: 8px; }
     .pub { grid-template-columns: 1fr; gap: 8px; }
     .pub-venue { text-align: left; padding-top: 0; }
@@ -458,6 +511,7 @@
     <div class="brand">Yeonjun <span>Hwang</span></div>
     <ul>
       <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#more">More</a></li>
@@ -506,6 +560,58 @@
     </div>
   </section>
 
+  <!-- NEWS -->
+<section id="news">
+  <div class="section-header">
+    <div class="section-num">02 —</div>
+    <h2 class="section-title">News</h2>
+  </div>
+
+  <div class="news-list">
+
+        <div class="news-item">
+      <div class="news-date">May 2026</div>
+      <div class="news-content">
+        <span class="emoji">📝</span>
+        Our paper <a href="#pub-embguard"><strong>EMBGuard</strong></a> is accepted to <span class="venue">ICML 2026</span>.
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">Jan 2026</div>
+      <div class="news-content">
+        <span class="emoji">📄</span>
+        New preprint <a href="#pub-condesion"><strong>CONDESION-BENCH</strong></a> is now available on <span class="venue">arXiv</span>.
+      </div>
+    </div>
+    
+    <div class="news-item">
+      <div class="news-date">Sep 2025</div>
+      <div class="news-content">
+        <span class="emoji">🎉</span>
+        Our paper <a href="#pub-web-shepherd"><strong>Web‑Shepherd</strong></a> is accepted to <span class="venue">NeurIPS 2025</span> as a Spotlight!
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">Aug 2025</div>
+      <div class="news-content">
+        <span class="emoji">🎉</span>
+        Our paper <a href="#pub-principles"><strong>PRINCIPLES</strong></a> is accepted to <span class="venue">EMNLP 2025 Findings</span>!
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">May 2025</div>
+      <div class="news-content">
+        <span class="emoji">🎉</span>
+        Our paper <a href="#pub-therapist"><strong>Mind-Voyager</strong></a> is accepted to <span class="venue">ACL 2025 Findings</span>!
+      </div>
+    </div>
+
+  </div>
+</section>
+
   <!-- EDUCATION -->
   <section id="education">
     <div class="section-header">
@@ -546,7 +652,14 @@
     <!-- Under Review -->
     <div class="pub-group">
       <div class="pub-group-title">Under Review</div>
-      <div class="pub">
+      </div>
+    </div>
+
+    <!-- Published -->
+    <div class="pub-group">
+      <div class="pub-group-title">Published</div>
+
+      <div class="pub" id="pub-embguard">
         <div class="pub-venue">ICML<br>2026</div>
         <div>
           <div class="pub-title">EMBGUARD: Constructing Hazard‑Aware Guardrails for Safe Planning in Embodied Agents</div>
@@ -555,21 +668,14 @@
             <span class="me">Yeonjun Hwang</span>, Hyojun Kim, Byungchul Kim,
             Young Kyun Jang, Jinyoung Yeo
           </div>
-          <!-- 링크 URL을 href="..." 안에 넣으세요. 없는 항목은 해당 <a> 줄을 통째로 삭제하시면 됩니다. -->
           <div class="pub-links">
             <!-- <a href="#" target="_blank">paper</a>
             <a href="#" target="_blank">arxiv</a>
             <a href="#" target="_blank">code</a> -->
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Published -->
-    <div class="pub-group">
-      <div class="pub-group-title">Published</div>
-
-      <div class="pub">
+      
+      <div class="pub" id="web-shepherd">
         <div class="pub-venue">NeurIPS<br>2025<br><em>Spotlight</em></div>
         <div>
           <div class="pub-title">Web‑Shepherd: Advancing PRMs for Reinforcing Web Agents</div>
@@ -587,7 +693,7 @@
         </div>
       </div>
 
-      <div class="pub">
+      <div class="pub" id="pub-principles">
         <div class="pub-venue">EMNLP<br>2025<br><em>Findings</em></div>
         <div>
           <div class="pub-title">PRINCIPLES: Synthetic Strategy Memory for Proactive Dialogue Agents</div>
@@ -603,7 +709,7 @@
         </div>
       </div>
 
-      <div class="pub">
+      <div class="pub" id="pub-therapist">
         <div class="pub-venue">ACL<br>2025<br><em>Findings</em></div>
         <div>
           <div class="pub-title">Can You Share Your Story? Modeling Clients' Metacognition and Openness for LLM Therapist Evaluation</div>
@@ -622,7 +728,7 @@
     <!-- Preprint -->
     <div class="pub-group">
       <div class="pub-group-title">Preprint</div>
-      <div class="pub">
+      <div class="pub" id="pub-condesion">
         <div class="pub-venue">arXiv</div>
         <div>
           <div class="pub-title">CONDESION‑BENCH: Conditional Decision‑Making of Large Language Models in Compositional Action Space</div>
