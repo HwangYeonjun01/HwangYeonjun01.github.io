@@ -40,9 +40,9 @@
   }
 
   .container {
-    max-width: 880px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 48px;
     position: relative;
     z-index: 2;
   }
@@ -96,38 +96,31 @@
   }
   nav a:hover::after { width: 100%; }
 
+  .hero-bio a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: border-color 0.2s;
+  }
+  .hero-bio a:hover {
+    border-bottom-color: var(--accent);
+  }
+
   /* ===== HERO ===== */
   .hero {
-    padding: 100px 0 80px;
+    padding: 90px 0 80px;
     display: grid;
-    grid-template-columns: 1fr 220px;
-    gap: 60px;
+    grid-template-columns: 1fr 260px;
+    gap: 80px;
     align-items: center;
-  }
-  .hero-text .eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .hero-text .eyebrow::before {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: var(--accent);
   }
   .hero-text h1 {
     font-family: var(--serif);
-    font-size: clamp(48px, 7vw, 76px);
+    font-size: clamp(40px, 5vw, 64px);
     font-weight: 400;
     line-height: 0.98;
     letter-spacing: -0.03em;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     font-variation-settings: "opsz" 144;
   }
   .hero-text h1 em {
@@ -135,14 +128,19 @@
     font-weight: 300;
     color: var(--accent);
   }
-  .hero-text .lede {
+  .hero-bio {
     font-family: var(--serif);
-    font-size: 19px;
+    font-size: 17px;
     color: var(--ink-soft);
-    line-height: 1.55;
-    max-width: 480px;
+    line-height: 1.65;
+    max-width: 620px;
     font-weight: 300;
     margin-bottom: 28px;
+  }
+  .hero-bio p + p { margin-top: 14px; }
+  .hero-bio strong {
+    color: var(--ink);
+    font-weight: 500;
   }
   .contact-line {
     display: flex;
@@ -151,6 +149,7 @@
     font-size: 13px;
     color: var(--ink-muted);
   }
+  .contact-line + .contact-line { margin-top: 8px; }
   .contact-line a {
     color: var(--ink-soft);
     text-decoration: none;
@@ -166,8 +165,8 @@
   /* ===== PROFILE PHOTO ===== */
   .photo-frame {
     position: relative;
-    width: 220px;
-    height: 280px;
+    width: 260px;
+    height: 330px;
   }
   .photo-frame::before {
     content: '';
@@ -209,21 +208,6 @@
     font-weight: 400;
     letter-spacing: -0.02em;
     font-style: italic;
-  }
-
-  /* ===== ABOUT ===== */
-  .prose {
-    font-family: var(--serif);
-    font-size: 18px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-    font-weight: 300;
-    max-width: 660px;
-  }
-  .prose p + p { margin-top: 18px; }
-  .prose strong {
-    color: var(--ink);
-    font-weight: 500;
   }
 
   /* ===== NEWS ===== */
@@ -276,7 +260,7 @@
   /* ===== EDUCATION ===== */
   .edu-item {
     display: grid;
-    grid-template-columns: 140px 1fr;
+    grid-template-columns: 180px 1fr;
     gap: 32px;
     padding: 24px 0;
     border-bottom: 1px solid var(--line);
@@ -314,7 +298,7 @@
 
   /* ===== PUBLICATIONS ===== */
   .pub-group {
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
   .pub-group-title {
     font-family: var(--mono);
@@ -327,29 +311,67 @@
     border-bottom: 1px solid var(--line);
   }
   .pub {
-    padding: 20px 0;
+    padding: 24px 0;
     display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 24px;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    align-items: start;
     scroll-margin-top: 90px;
   }
   .pub + .pub { border-top: 1px dotted var(--line); }
-  .pub-venue {
+
+  /* paper image / placeholder */
+  .pub-image {
+    width: 180px;
+    height: 130px;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+  .pub-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .pub-image.placeholder { border: 1px dashed var(--ink-muted); }
+  .pub-image.placeholder::after {
+    content: 'paper figure';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .pub-venue-badge {
+    display: inline-block;
     font-family: var(--mono);
     font-size: 11px;
     color: var(--accent);
-    letter-spacing: 0.05em;
-    padding-top: 6px;
-    text-align: right;
-    line-height: 1.5;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    padding: 3px 10px;
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    text-transform: uppercase;
   }
-  .pub-venue em {
+  .pub-venue-badge em {
     font-style: italic;
     color: var(--ink-muted);
+    border-left: 1px solid var(--line);
+    margin-left: 6px;
+    padding-left: 8px;
+    text-transform: none;
   }
   .pub-title {
     font-family: var(--serif);
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 500;
     line-height: 1.35;
     margin-bottom: 8px;
@@ -365,7 +387,7 @@
     font-weight: 600;
   }
   .pub-links {
-    margin-top: 10px;
+    margin-top: 12px;
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
@@ -384,14 +406,8 @@
     opacity: 1;
     border-bottom-color: var(--accent);
   }
-  .pub-links a::before {
-    content: '[ ';
-    opacity: 0.5;
-  }
-  .pub-links a::after {
-    content: ' ]';
-    opacity: 0.5;
-  }
+  .pub-links a::before { content: '[ '; opacity: 0.5; }
+  .pub-links a::after { content: ' ]'; opacity: 0.5; }
 
   /* ===== LIST ITEMS ===== */
   .list-item {
@@ -446,24 +462,24 @@
   }
 
   /* ===== RESPONSIVE ===== */
-  @media (max-width: 720px) {
-    .container { padding: 0 22px; }
+  @media (max-width: 900px) {
+    .container { padding: 0 28px; }
     .hero {
       grid-template-columns: 1fr;
       gap: 40px;
       padding: 60px 0 50px;
     }
     .photo-frame {
-      width: 180px;
-      height: 230px;
+      width: 200px;
+      height: 250px;
       order: -1;
     }
     nav ul { gap: 18px; }
     nav a { font-size: 12px; }
     .news-item { grid-template-columns: 1fr; gap: 6px; }
     .edu-item { grid-template-columns: 1fr; gap: 8px; }
-    .pub { grid-template-columns: 1fr; gap: 8px; }
-    .pub-venue { text-align: left; padding-top: 0; }
+    .pub { grid-template-columns: 1fr; gap: 16px; }
+    .pub-image { width: 100%; height: 180px; }
     .section-title { font-size: 26px; }
   }
 
@@ -486,9 +502,8 @@
 
 <nav>
   <div class="container">
-    <div class="brand">Yeonjun <span>Hwang</span></div>
+    <div class="brand"><span>Yeonjun</span> Hwang</div>
     <ul>
-      <li><a href="#about">About</a></li>
       <li><a href="#news">News</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#publications">Publications</a></li>
@@ -502,47 +517,40 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-text">
-      <div class="eyebrow fade-up">M.S. Student · Artificial Intelligence</div>
-      <h1 class="fade-up delay-1">Yeonjun<br><em>Hwang</em></h1>
-      <p class="lede fade-up delay-2">
-        Researcher at the intersection of <strong>large language models</strong>,
-        <strong>agents</strong>, and <strong>decision making</strong> &mdash;
-        building LLMs for real-world deployments.
-      </p>
-      <div class="contact-line fade-up delay-3">
+      <h1 class="fade-up"><em>Yeonjun</em> Hwang</h1>
+      <div class="hero-bio fade-up delay-1">
+        <p>
+          I am an <strong>M.S. student in Artificial Intelligence</strong> at Yonsei University.
+          I received my Bachelor's Degree of Business Administration and Computer Science at
+          Yonsei University. I worked as a research intern at the
+          <a href="https://langlab.yonsei.ac.kr/" target="_blank"<strong>Language &amp; AGI Lab</strong></a> under the supervision of Prof.
+          <a href="https://jinyeo.weebly.com/" target="_blank"<strong>Jinyoung Yeo</strong></a>.
+        </p>
+        <p>
+          My research focuses on developing large language models for real-world
+          applications &mdash; AI Agents, decision-making of LLMs.
+        </p>
+      </div>
+      <div class="contact-line fade-up delay-2">
         <span>Yonsei University, Seoul</span>
         <a href="mailto:hbhhyj@yonsei.ac.kr">hbhhyj@yonsei.ac.kr</a>
         <a href="mailto:hbhhyj1005@gmail.com">hbhhyj1005@gmail.com</a>
+      </div>
+      <div class="contact-line fade-up delay-2">
         <a href="https://www.linkedin.com/in/yeonjun-hwang-40b241343" target="_blank">LinkedIn</a>
         <a href="https://scholar.google.com/citations?user=soDzeokAAAAJ&hl=ko" target="_blank">Google Scholar</a>
       </div>
     </div>
 
-    <div class="photo-frame fade-up delay-2">
+    <div class="photo-frame fade-up delay-1">
       <img src="profile.jpg" alt="Yeonjun Hwang">
     </div>
   </header>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-header">
-      <div class="section-num">01 —</div>
-      <h2 class="section-title">About</h2>
-    </div>
-    <div class="prose">
-      <p>
-        I received my Bachelor's Degree of Business Administration and Computer Science at
-        Yonsei University. I worked as a research intern at the
-        <strong>Language &amp; AGI Lab</strong> under the supervision of Prof. Jinyoung Yeo.
-        My research focuses on developing large language models for real-world applications.
-      </p>
-    </div>
-  </section>
-
   <!-- NEWS -->
   <section id="news">
     <div class="section-header">
-      <div class="section-num">02 —</div>
+      <div class="section-num">01 —</div>
       <h2 class="section-title">News</h2>
     </div>
 
@@ -599,7 +607,7 @@
   <!-- EDUCATION -->
   <section id="education">
     <div class="section-header">
-      <div class="section-num">03 —</div>
+      <div class="section-num">02 —</div>
       <h2 class="section-title">Education</h2>
     </div>
 
@@ -617,7 +625,8 @@
       <div class="edu-content">
         <h3>Yonsei University</h3>
         <div class="deg">Bachelor's degree of Business Administration and Computer Science</div>
-        <div class="note">Research Intern at the Language &amp; AGI Lab</div>
+        <div class="detail">Seoul, Republic of Korea</div>
+        <div class="note">Advisor: Prof. Jinyoung Yeo</div>
       </div>
     </div>
   </section>
@@ -625,7 +634,7 @@
   <!-- PUBLICATIONS -->
   <section id="publications">
     <div class="section-header">
-      <div class="section-num">04 —</div>
+      <div class="section-num">03 —</div>
       <h2 class="section-title">Publications</h2>
     </div>
 
@@ -638,8 +647,12 @@
       <div class="pub-group-title">Published</div>
 
       <div class="pub" id="pub-embguard">
-        <div class="pub-venue">ICML<br>2026</div>
+        <div class="pub-image">
+          <img src="papers/embguard.png" alt="EMBGUARD figure"
+               onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+        </div>
         <div>
+          <span class="pub-venue-badge">ICML 2026</span>
           <div class="pub-title">EMBGUARD: Constructing Hazard-Aware Guardrails for Safe Planning in Embodied Agents</div>
           <div class="pub-authors">
             Dongwook Choi*, Taeyoon Kwon*, Bogyung Jeong, Minju Kim,
@@ -647,7 +660,6 @@
             Young Kyun Jang, Jinyoung Yeo
           </div>
           <div class="pub-links">
-            <!-- 링크 생기면 아래 주석 풀고 href 채워넣기
             <a href="#" target="_blank">paper</a>
             <a href="#" target="_blank">arxiv</a>
             <a href="#" target="_blank">code</a>
@@ -657,8 +669,12 @@
       </div>
 
       <div class="pub" id="pub-web-shepherd">
-        <div class="pub-venue">NeurIPS<br>2025<br><em>Spotlight</em></div>
+        <div class="pub-image">
+          <img src="papers/web-shepherd.png" alt="Web-Shepherd figure"
+               onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+        </div>
         <div>
+          <span class="pub-venue-badge">NeurIPS 2025 <em>Spotlight</em></span>
           <div class="pub-title">Web-Shepherd: Advancing PRMs for Reinforcing Web Agents</div>
           <div class="pub-authors">
             Hyungjoo Chae*, Sunghwan Kim*, Junhee Cho*, Seungone Kim, Seungjun Moon,
@@ -675,8 +691,12 @@
       </div>
 
       <div class="pub" id="pub-principles">
-        <div class="pub-venue">EMNLP<br>2025<br><em>Findings</em></div>
+        <div class="pub-image">
+          <img src="papers/principles.png" alt="PRINCIPLES figure"
+               onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+        </div>
         <div>
+          <span class="pub-venue-badge">EMNLP 2025 <em>Findings</em></span>
           <div class="pub-title">PRINCIPLES: Synthetic Strategy Memory for Proactive Dialogue Agents</div>
           <div class="pub-authors">
             Namyoung Kim, Kai Tzu-iunn Ong, <span class="me">Yeonjun Hwang</span>,
@@ -691,8 +711,12 @@
       </div>
 
       <div class="pub" id="pub-therapist">
-        <div class="pub-venue">ACL<br>2025<br><em>Findings</em></div>
+        <div class="pub-image">
+          <img src="papers/therapist.png" alt="Mind-Voyager figure"
+               onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+        </div>
         <div>
+          <span class="pub-venue-badge">ACL 2025 <em>Findings</em></span>
           <div class="pub-title">Can You Share Your Story? Modeling Clients' Metacognition and Openness for LLM Therapist Evaluation</div>
           <div class="pub-authors">
             Minju Kim, Dongje Yoo, <span class="me">Yeonjun Hwang</span>, Minseok Kang,
@@ -712,8 +736,12 @@
       <div class="pub-group-title">Preprint</div>
 
       <div class="pub" id="pub-condesion">
-        <div class="pub-venue">arXiv</div>
+        <div class="pub-image">
+          <img src="papers/condesion.png" alt="CONDESION-BENCH figure"
+               onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+        </div>
         <div>
+          <span class="pub-venue-badge">arXiv 2026</span>
           <div class="pub-title">CONDESION-BENCH: Conditional Decision-Making of Large Language Models in Compositional Action Space</div>
           <div class="pub-authors">
             <span class="me">Yeonjun Hwang</span>, Sungyong Park, Minju Kim, Dongha Lee, Jinyoung Yeo
@@ -730,7 +758,7 @@
   <!-- MORE: Awards, Teaching, Service -->
   <section id="more">
     <div class="section-header">
-      <div class="section-num">05 —</div>
+      <div class="section-num">04 —</div>
       <h2 class="section-title">Beyond Research</h2>
     </div>
 
