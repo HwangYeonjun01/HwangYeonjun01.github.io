@@ -322,19 +322,20 @@
   /* paper image / placeholder */
   .pub-image {
     width: 180px;
-    height: 130px;
     background: var(--bg-alt);
     border: 1px solid var(--line);
-    overflow: hidden;
     position: relative;
+    align-self: start;      /* 그리드에서 위쪽 정렬 */
   }
   .pub-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
   }
-  .pub-image.placeholder { border: 1px dashed var(--ink-muted); }
+  .pub-image.placeholder {
+    height: 130px;
+    border: 1px dashed var(--ink-muted);
+  }
   .pub-image.placeholder::after {
     content: 'paper figure';
     position: absolute;
@@ -477,7 +478,8 @@
     .news-item { grid-template-columns: 1fr; gap: 6px; }
     .edu-item { grid-template-columns: 1fr; gap: 8px; }
     .pub { grid-template-columns: 1fr; gap: 16px; }
-    .pub-image { width: 100%; height: 180px; }
+    .pub-image { width: 100%;}
+    .pub-image.placeholder { height: 180px; }
     .section-title { font-size: 26px; }
   }
 
@@ -754,69 +756,63 @@
     </div>
   </section>
 
-  <!-- <!-- MORE: Awards, Teaching, Service -->
+  <!-- MORE: Awards, Teaching, Service (전체 비활성화)
   <section id="more">
-    <div class="section-header">
-      <div class="section-num">04 —</div>
-      <h2 class="section-title">Beyond Research</h2>
-    </div>
-
-    <!-- Awards -->
-    <h3 style="font-family: var(--serif); font-size:18px; font-weight:500; margin-bottom:16px; color: var(--accent);">Awards &amp; Honors</h3>
-    <div class="list-item">
-      <div class="li-text">
-        AGI Agent Hackathon
-        <span class="sub">YBIGTA, Yonsei University</span>
+      <div class="section-header">
+        <div class="section-num">04 —</div>
+        <h2 class="section-title">Beyond Research</h2>
       </div>
-      <div class="li-year">2025</div>
-    </div>
-    <div class="list-item">
-      <div class="li-text">
-        Yonsei–KAPS Hackathon for Social Good
-        <span class="sub">Yonsei University &amp; KAPS</span>
+      <h3 style="font-family: var(--serif); font-size:18px; font-weight:500; margin-bottom:16px; color: var(--accent);">Awards &amp; Honors</h3>
+      <div class="list-item">
+        <div class="li-text">
+          AGI Agent Hackathon
+          <span class="sub">YBIGTA, Yonsei University</span>
+        </div>
+        <div class="li-year">2025</div>
       </div>
-      <div class="li-year">2024</div>
-    </div>
-    <div class="list-item">
-      <div class="li-text">
-        Honors, Yonsei University
-        <span class="sub">Awarded for Spring 2023 &amp; Fall 2023 semesters</span>
+      <div class="list-item">
+        <div class="li-text">
+          Yonsei–KAPS Hackathon for Social Good
+          <span class="sub">Yonsei University &amp; KAPS</span>
+        </div>
+        <div class="li-year">2024</div>
       </div>
-      <div class="li-year">2023</div>
-    </div>
-
-    <!-- Teaching -->
-    <h3 style="font-family: var(--serif); font-size:18px; font-weight:500; margin: 36px 0 16px; color: var(--accent);">Teaching</h3>
-    <div class="list-item">
-      <div class="li-text">
-        Teaching Assistant, Introduction to Artificial Intelligence (CAS2250)
-        <span class="sub">Yonsei University</span>
+      <div class="list-item">
+        <div class="li-text">
+          Honors, Yonsei University
+          <span class="sub">Awarded for Spring 2023 &amp; Fall 2023 semesters</span>
+        </div>
+        <div class="li-year">2023</div>
       </div>
-      <div class="li-year">2025</div>
-    </div>
-    <div class="list-item">
-      <div class="li-text">
-        Teaching Assistant, Natural Language Processing and ChatGPT (AIC3110)
-        <span class="sub">Yonsei University</span>
+      <h3 style="font-family: var(--serif); font-size:18px; font-weight:500; margin: 36px 0 16px; color: var(--accent);">Teaching</h3>
+      <div class="list-item">
+        <div class="li-text">
+          Teaching Assistant, Introduction to Artificial Intelligence (CAS2250)
+          <span class="sub">Yonsei University</span>
+        </div>
+        <div class="li-year">2025</div>
       </div>
-      <div class="li-year">2025</div>
-    </div>
-    <div class="list-item">
-      <div class="li-text">
-        Teaching Assistant, SK ML Engineer Program
-        <span class="sub">Seoul, Korea</span>
+      <div class="list-item">
+        <div class="li-text">
+          Teaching Assistant, Natural Language Processing and ChatGPT (AIC3110)
+          <span class="sub">Yonsei University</span>
+        </div>
+        <div class="li-year">2025</div>
       </div>
-      <div class="li-year">2025</div>
-    </div>
-
-    <!-- Service -->
-    <h3 style="font-family: var(--serif); font-size:18px; font-weight:500; margin: 36px 0 16px; color: var(--accent);">Professional Service</h3>
-    <div class="list-item">
-      <div class="li-text">Reviewer, EMNLP 2025</div>
-      <div class="li-year">2025</div>
-    </div>
-  </section> -->
-
+      <div class="list-item">
+        <div class="li-text">
+          Teaching Assistant, SK ML Engineer Program
+          <span class="sub">Seoul, Korea</span>
+        </div>
+        <div class="li-year">2025</div>
+      </div>
+      <h3 style="font-family: var(--serif); font-size:18px; font-weight:500; margin: 36px 0 16px; color: var(--accent);">Professional Service</h3>
+      <div class="list-item">
+        <div class="li-text">Reviewer, EMNLP 2025</div>
+        <div class="li-year">2025</div>
+      </div>
+  </section>
+  -->
   <footer>
     <div>© 2026 Yeonjun Hwang &nbsp;·&nbsp; Last updated May 2026</div>
     <div class="ornament">~ ~ ~</div>
