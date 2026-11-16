@@ -504,6 +504,19 @@
   .delay-2 { animation-delay: 0.2s; }
   .delay-3 { animation-delay: 0.3s; }
   .delay-4 { animation-delay: 0.4s; }
+
+  /* ===== EXPERIENCE ===== */
+  .exp-lab-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  
+  .exp-lab-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
 </style>
 </head>
 <body>
@@ -515,6 +528,7 @@
       <li><a href="#news">News</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
       <!-- <li><a href="#more">More</a></li> -->
     </ul>
   </div>
@@ -528,12 +542,9 @@
       <h1 class="fade-up"><em>Yeonjun</em> Hwang</h1>
       <div class="hero-bio fade-up delay-1">
         <p>
-          I am an incoming MS student in Artificial Intelligence at KAIST.
+          I am an incoming MS student in <a href="https://gsai.kaist.ac.kr/" target="_blank"<strong>Kim Jaechul Graduate School of AI</strong></a> at <a href="https://www.kaist.ac.kr/" target="_blank"<strong>KAIST</strong></a>.
           I received my Bachelor's Degree of Business Administration and Computer Science at
-          Yonsei University. I worked as a research intern at at <a href="https://www.mlai-kaist.com/" target="_blank"<strong>MLAI</strong></a> under the supervision of Prof. 
-          <a href="http://www.sungjuhwang.com/" target="_blank"<strong>Sungju Hwang</strong></a> and
-          <a href="https://langlab.yonsei.ac.kr/" target="_blank"<strong>Language &amp; AGI Lab</strong></a> under the supervision of Prof.
-          <a href="https://jinyeo.weebly.com/" target="_blank"<strong>Jinyoung Yeo</strong></a>.
+          Yonsei University.
         </p>
         <p>
           My research focuses on developing large language models for real-world
@@ -541,8 +552,8 @@
         </p>
       </div>
       <div class="contact-line fade-up delay-2">
-        <span>Yonsei University, Seoul</span>
-        <a href="mailto:hbhhyj@yonsei.ac.kr">hbhhyj@yonsei.ac.kr</a>
+        <span>KAIST, Seoul</span>
+        <a href="mailto:hbhhyj@yonsei.ac.kr">hbhhyj@kaist.ac.kr</a>
         <a href="mailto:hbhhyj1005@gmail.com">hbhhyj1005@gmail.com</a>
       </div>
       <div class="contact-line fade-up delay-2">
@@ -760,6 +771,38 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header">
+      <div class="section-num">04 —</div>
+      <h2 class="section-title">Experience</h2>
+    </div>
+  
+    <div class="edu-item">
+      <div class="edu-date">2026.11 — Present</div>
+      <div class="edu-content">
+        <h3><a class="exp-lab-link" href="https://mp2893.com/">Edlab</a>, KAIST</h3>
+        <div class="note">Advisor: Edward Choi</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-date">2026.04 — 2026.10</div>
+      <div class="edu-content">
+        <h3><a class="exp-lab-link" href="https://www.mlai-kaist.com/">MLAI</a>, KAIST</h3>
+        <div class="note">Advisor: Sungju Hwang</div>
+      </div>
+    </div>
+      
+    <div class="edu-item">
+      <div class="edu-date">2024.06 — 2026.03</div>
+      <div class="edu-content">
+        <h3><a class="exp-lab-link" href="https://langlab.yonsei.ac.kr/">Language &amp; AGI Lab</a>, Yonsei University</h3>
+        <div class="note">Advisor: Jinyoung Yeo</div>
+      </div>
     </div>
   </section>
 
